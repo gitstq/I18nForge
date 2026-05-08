@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "i18nforge"
+version = "1.0.0"
+description = "🎉 README Multi-language Intelligent Generator - Markdown-aware translation tool with format preservation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "gitstq", email = "gitstq@github.com"}
+]
+keywords = [
+    "i18n",
+    "localization",
+    "translation",
+    "markdown",
+    "readme",
+    "multi-language",
+    "github",
+    "internationalization",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Internationalization",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Documentation",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+all = [
+    "deepl>=1.0",
+    "openai>=1.0",
+]
+
+[project.scripts]
+i18nforge = "i18nforge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gitstq/I18nForge"
+Documentation = "https://github.com/gitstq/I18nForge#readme"
+Repository = "https://github.com/gitstq/I18nForge"
+Issues = "https://github.com/gitstq/I18nForge/issues"
+Changelog = "https://github.com/gitstq/I18nForge/releases"
+
+[tool.setuptools]
+packages = ["i18nforge"]
+
+[tool.setuptools.package-data]
+i18nforge = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
