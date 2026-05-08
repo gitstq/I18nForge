@@ -1,0 +1,4 @@
+# Core dependencies - None! This is a zero-dependency project
+# Optional dependencies for advanced translation engines:
+# deepl>=1.0
+# openai>=1.0
